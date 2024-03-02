@@ -76,7 +76,7 @@ export default function Home() {
       <div className='grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center'>
         <Shapes />
         <div className='col-start-1 md:row-start-1'>
-          <h1 className='mb-8 text-[clamp(3rem,10vmin,10rem)] font-extrabold leading-none tracking-tighter text-nowrap'>
+          <h1 className='mb-8 text-[clamp(2rem,10vmin,10rem)] font-extrabold leading-none tracking-tighter'>
             <span className=' block text-slate-500'>
               {renderLetters('PARORO', 'first')}
             </span>

@@ -9,7 +9,7 @@ import { getRandomValues } from 'crypto'
 
 export function Shapes() {
   return (
-    <div className='row-span-1 row-start-1 -my-9 aspect-square md:col-span-1 md:col-start-2 md:mt-0'>
+    <div className='row-span-1 row-start-1 -mt-9 aspect-square md:col-span-1 md:col-start-2 md:mt-0'>
       <Canvas
         className='z-0'
         shadows
@@ -20,7 +20,7 @@ export function Shapes() {
         <Suspense fallback={null}>
           <Geometries />
           <ContactShadows
-            position={[0, -3.5, 0]}
+            position={[0, 0, 0]}
             opacity={0.65}
             scale={40}
             blue={1}
@@ -34,15 +34,22 @@ export function Shapes() {
 }
 
 function Geometries() {
+  let textureLoader = new THREE.TextureLoader()
+  let texture1 = textureLoader.load('./NoBackground.png')
+
   const geometries = [
     {
       position: [0, 0, 0],
-      r: 0.3,
-      geomerty: new THREE.IcosahedronGeometry(3),
+      r: 1,
+      geomerty: new THREE.CircleGeometry(6, 32),
     },
   ]
 
-  const materials = [new THREE.MeshNormalMaterial()]
+  const materials = [
+    new THREE.MeshNormalMaterial({
+      map: new THREE.TextureLoader().load('{{ "/NoBackground.png" }}'),
+    }),
+  ]
 
   return geometries.map(({ position, r, geomerty }) => {
     return (
@@ -76,7 +83,7 @@ function Geometry({ r, position, geometry, materials }) {
       z: `+=${gsap.utils.random(0, 2)}`,
       duration: 1.3,
       ease: 'elastic.out(1,0.3)',
-      yoyo: true,
+      // yoyo: true,
     })
     mesh.material = getRandomMaterial()
   }
