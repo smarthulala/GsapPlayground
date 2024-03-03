@@ -41,13 +41,15 @@ function Geometries() {
     {
       position: [0, 0, 0],
       r: 1,
-      geomerty: new THREE.CircleGeometry(6, 32),
+      geomerty: new THREE.CircleGeometry(10, 32),
     },
   ]
 
   const materials = [
-    new THREE.MeshNormalMaterial({
-      map: new THREE.TextureLoader().load('{{ "/NoBackground.png" }}'),
+    new THREE.MeshStandardMaterial({
+      color: 0x2c3e50,
+      roughness: 0.1,
+      metalness: 0.5,
     }),
   ]
 
