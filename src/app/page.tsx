@@ -3,7 +3,6 @@ import Image from 'next/image'
 import gsap, { random } from 'gsap'
 import { useEffect, useRef } from 'react'
 import Bounded from '../component/Bounded'
-import { Shapes } from '../utils/Shapes'
 
 export default function Home() {
   const component = useRef(null)
@@ -75,7 +74,6 @@ export default function Home() {
       ref={component}
     >
       <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center bg-[url('/heroBackground.jpeg')] bg-fixed bg-[length:1200px_1100px] md:bg-cover bg-left-bottom">
-        <Shapes />
         <div className='col-start-1 md:row-start-1'>
           <h1 className='mb-8 text-[clamp(2rem,10vmin,10rem)] font-extrabold leading-none tracking-tighter'>
             <span className='block bg-gradient-to-r from bg-yellow-200 via-yellow-50 to-yellow-200 bg-clip-text'>
